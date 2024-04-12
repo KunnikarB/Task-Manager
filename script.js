@@ -13,4 +13,10 @@ addTask: function (description) {
     taskManager.addTask(taskDescrition);
     return;
   }
+  // define the task object
+  const newTask = {
+    id: this.idCounter++,
+    description: description,
+    completed: false,
+  };
     
