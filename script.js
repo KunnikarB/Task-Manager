@@ -56,4 +56,14 @@ listCompletedTasks: function () {
 }
 };
 // End of taskManager object
-
+//function displays a menu with different choices for the user
+function menu() {
+  const choice = parseInt(prompt(
+      `Please select an options: (1-5) then click Ok:
+      1. Add Task
+      2. Complete a Tasks
+      3. List All Tasks
+      4. List Completed Tasks
+      5. Exit Task Menager`
+    ));
+    
