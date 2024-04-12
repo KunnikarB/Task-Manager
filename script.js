@@ -99,3 +99,5 @@ function menu() {
 menu();
 }
 // End of function menu()      
+// function for asking the user to fill in their name
+function askUserName()
