@@ -19,4 +19,8 @@ addTask: function (description) {
     description: description,
     completed: false,
   };
-    
+  // add the task to the tasks array
+  this.tasks.push(newTask);   
+  alert('Task Added Successfully! \nClick OK To Main Menu:');
+  
+},  
