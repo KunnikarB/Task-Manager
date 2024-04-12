@@ -23,4 +23,17 @@ addTask: function (description) {
   this.tasks.push(newTask);   
   alert('Task Added Successfully! \nClick OK To Main Menu:');
   
-},  
+}, 
+// Method that marks a task as completed
+completeTask: function(taskId) {
+  const task = this.tasks.find(task => task.id === taskId);
+  if (!task) {
+    alert('Sorry! Task not found.');
+    const taskId = parseInt(prompt('Enter task ID to complete, then click OK:'));
+    taskManager.completeTask(taskId);
+    return;
+  }
+  task.completed = true;
+  alert(`Task ID: ${task.id}, Description: ${task.description} Completed! \n Click OK To Main Menu:`);
+  
+},
