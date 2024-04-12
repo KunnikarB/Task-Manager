@@ -56,6 +56,7 @@ listCompletedTasks: function () {
 }
 };
 // End of taskManager object
+
 //function displays a menu with different choices for the user
 function menu() {
   const choice = parseInt(prompt(
@@ -98,6 +99,20 @@ function menu() {
 // Keep displaying menu untill user chooses to exit
 menu();
 }
-// End of function menu()      
+// End of function menu()   
+
 // function for asking the user to fill in their name
-function askUserName()
+function askUserName() {
+  const userName = prompt('Please Enter Your Name: ');
+  // Remove whitespace then check for en emply string or a number
+  if ((userName.trim() ===   "") || (!isNaN(userName))) {
+    alert('User name can not be EMPTY or a NUMBER! \nPlease Enter Your Name: ');
+    // Recursive call if user name is empty or a number
+    askUserName();
+  } else {
+    alert(`Welome To Task Manager ${userName}  \nStart Using Click OK: `);
+    // Call function menu()
+    menu();
+  }  
+}
+// End of function askUserName()
