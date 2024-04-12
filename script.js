@@ -37,3 +37,12 @@ completeTask: function(taskId) {
   alert(`Task ID: ${task.id}, Description: ${task.description} Completed! \n Click OK To Main Menu:`);
   
 },
+// Method that lists all tasks
+listAllTasks: function () {
+  console.log('All tasks:');
+  this.tasks.forEach(task => {
+    console.log(`ID: ${task.id}, Description: ${task.description}, Completed: ${task.completed}`); 
+  });
+  alert('Click OK To Main Menu:');
+},
+
