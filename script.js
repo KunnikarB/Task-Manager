@@ -94,4 +94,8 @@ function menu() {
       default:
         alert('Invalid! Please select a valid option.');
         break;
-    }    
+    }  
+// Keep displaying menu untill user chooses to exit
+menu();
+}
+// End of function menu()      
