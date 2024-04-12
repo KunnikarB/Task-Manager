@@ -66,4 +66,32 @@ function menu() {
       4. List Completed Tasks
       5. Exit Task Menager`
     ));
-    
+    switch (choice) {
+      case 1 :
+        const taskDescription = prompt('Add task description, then click OK.');
+        // Call method addTask()
+        taskManager.addTask(taskDescription);
+        break;
+      case 2 :
+        const taskId = parseInt(
+          prompt('Enter the task ID to complete, then click OK. ')
+        );
+        // Call method completeTask()
+        taskManager.completeTask(taskId);
+        break;
+      case 3 :
+        // Call methon listAllTasks()
+        taskManager.listAllTasks();
+        break;
+      case 4 :
+        // Call method listCompletedTasks()
+        taskManager.listCompletedTasks();
+        break;
+      case 5 :
+        // Exiting Task Manager
+        alert('Thanks For Using Task Manager. \nGoodbye!');
+        return;
+      default:
+        alert('Invalid! Please select a valid option.');
+        break;
+    }    
