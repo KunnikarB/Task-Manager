@@ -116,3 +116,6 @@ function askUserName() {
   }  
 }
 // End of function askUserName()
+
+// starts with the function asKUserName() which triggers the menu() function
+askUserName();
