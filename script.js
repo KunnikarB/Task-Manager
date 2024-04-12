@@ -45,4 +45,15 @@ listAllTasks: function () {
   });
   alert('Click OK To Main Menu:');
 },
+// Method that lists only completed tasks
+listCompletedTasks: function () {
+  console.log('completed tasks:');
+  const completedTasks = this.tasks.filter(
+    task => task.completed);
+    completedTasks.forEach(task => {
+      console.log(`ID: ${task.id}, Description: ${task.description}`);
+    });  
+}
+};
+// End of taskManager object
 
