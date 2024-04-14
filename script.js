@@ -5,18 +5,17 @@ const taskManager = {
   tasks: [],
   idCounter: 1,
 // Method adds a new task to the tasks array
-addTask: function (description) {
+addTask: function() {
+  const taskDescription = prompt('Add task description, then click OK.');
   // Remove whitespace then chcek if task is empty or a number
-  if ((description.trim() === "") || (!isNaN(description))) {
+  if ((taskDescription.trim() === "") || (!isNaN(taskDescription))) {
     alert('Task can not be empty or a number!' );
-    const taskDescrition = prompt('Add task description, then click OK:');
-    taskManager.addTask(taskDescrition);
     return;
   }
   // define the task object
   const newTask = {
     id: this.idCounter++,
-    description: description,
+    description: taskDescription,
     completed: false,
   };
   // add the task to the tasks array
@@ -25,18 +24,20 @@ addTask: function (description) {
   
 }, 
 // Method that marks a task as completed
-completeTask: function(taskId) {
+completeTask: function() {
+  const taskId = parseInt(
+    prompt('Enter the task ID to complete, then click OK. ')
+  );
   const task = this.tasks.find(task => task.id === taskId);
   if (!task) {
     alert('Sorry! Task not found.');
-    const taskId = parseInt(prompt('Enter task ID to complete, then click OK:'));
-    taskManager.completeTask(taskId);
     return;
   }
   task.completed = true;
   alert(`Task ID: ${task.id}, Description: ${task.description} Completed! \n Click OK To Main Menu:`);
   
 },
+
 // Method that lists all tasks
 listAllTasks: function () {
   console.log('All tasks:');
@@ -45,6 +46,7 @@ listAllTasks: function () {
   });
   alert('Click OK To Main Menu:');
 },
+
 // Method that lists only completed tasks
 listCompletedTasks: function () {
   console.log('completed tasks:');
@@ -68,33 +70,18 @@ function menu() {
       5. Exit Task Menager`
     ));
     switch (choice) {
-      case 1 :
-        const taskDescription = prompt('Add task description, then click OK.');
-        // Call method addTask()
-        taskManager.addTask(taskDescription);
-        break;
-      case 2 :
-        const taskId = parseInt(
-          prompt('Enter the task ID to complete, then click OK. ')
-        );
-        // Call method completeTask()
-        taskManager.completeTask(taskId);
-        break;
-      case 3 :
-        // Call methon listAllTasks()
-        taskManager.listAllTasks();
-        break;
-      case 4 :
-        // Call method listCompletedTasks()
-        taskManager.listCompletedTasks();
-        break;
-      case 5 :
-        // Exiting Task Manager
-        alert('Thanks For Using Task Manager. \nGoodbye!');
-        return;
-      default:
-        alert('Invalid! Please select a valid option.');
-        break;
+      case 1 : taskManager.addTask(); // Call method addTask()
+                break;
+      case 2 : taskManager.completeTask(); // Call method completeTask()
+                break;
+      case 3 : taskManager.listAllTasks();  // Call methon listAllTasks()
+                break;
+      case 4 : taskManager.listCompletedTasks();  // Call method listCompletedTasks()
+                break;
+      case 5 : alert('Thanks For Using Task Manager. \nGoodbye!'); // Exiting Task Manager
+                return;
+      default: alert('Invalid! Please select a valid option.');
+                break;
     }  
 // Keep displaying menu untill user chooses to exit
 menu();
